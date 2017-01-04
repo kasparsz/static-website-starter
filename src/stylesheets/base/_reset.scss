@@ -1,0 +1,17 @@
+body {
+    padding: 0;
+    margin: 0;
+
+    color: #222;
+    font: 16px/1.2em Arial, Helvetica, sans-serif;
+}
+
+main {
+    display: block;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
