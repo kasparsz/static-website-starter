@@ -3,13 +3,15 @@
 <head>
     {# Default meta tags #}
         <meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 
         <title>{% block title %}{% endblock %}</title>
 
     {# Favicon #}
-		<link rel="shortcut icon" href="/favicon.ico"/>
-		<link rel="icon" type="image/png" href="/favicon.png"/>
+        {#
+		<link rel="shortcut icon" href="favicon.ico">
+        <link rel="icon" type="image/png" href="favicon.png">
+        #}
 
 	{# Social share meta tags; docs: http://ogp.me/ #}
         {#
@@ -28,7 +30,7 @@
         #}
 
     {# CSS #}
-        <link rel="stylesheet" href="stylesheets/main.css"/>
+        <link rel="stylesheet" href="stylesheets/main.css">
         {% block stylesheets %}{% endblock %}
 
 </head>
