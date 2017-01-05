@@ -20,14 +20,14 @@
   },
 
   "scripts": {
-    "watch:js": "rollup -w -c rollup.js -i src/javascripts/main.js -o $npm_package_config_output/javascripts/main.js -m $npm_package_config_output/javascripts/main.js.map",
+    "watch:js": "npm run build:js-compile --silent -- --watch",
 
-    "watch:css-compile": "node-sass --source-map=true --source-map-contents=true --include-path src/stylesheets --include-path node_modules src/stylesheets/*.scss -o $npm_package_config_output/stylesheets-sass -w -r",
-    "watch:css-compress": "postcss -w $npm_package_config_output/stylesheets-sass/ -c postcss.js -d $npm_package_config_output/stylesheets/ $npm_package_config_output/stylesheets-sass/*.css",
+    "watch:css-compile": "npm run build:css-compile --silent -- --watch",
+    "watch:css-compress": "npm run build:css-compress --silent -- --watch=$npm_package_config_output/stylesheets-sass/",
     "watch:css": "npm-run-all --parallel watch:css-compile watch:css-compress",
 
-    "watch:html": "nunjucks \"*.@(twig|html|tpl|nunjuck)\" -w -p src/html -o $npm_package_config_output",
-    "watch:static": "cpx src/static/**/* $npm_package_config_output -p -w",
+    "watch:html": "npm run build:html --silent -- --watch",
+    "watch:static": "npm run build:static --silent -- --watch",
 
     "build:js-compile": "rollup -c rollup.js -i src/javascripts/main.js -o $npm_package_config_output/javascripts/main.js -m $npm_package_config_output/javascripts/main.js.map",
     "build:js-compress": "uglifyjs $npm_package_config_output/javascripts/main.js --source-map $npm_package_config_output/javascripts/main.js.map --in-source-map $npm_package_config_output/javascripts/main.js.map --source-map-url main.js.map --output $npm_package_config_output/javascripts/main.js --compress --mangle",

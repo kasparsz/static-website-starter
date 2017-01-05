@@ -3,5 +3,5 @@
 {% block title %}Static website{% endblock %}
 
 {% block body %}
-    <h1>Welcome</h1>
+    <h1>Hello world</h1>
 {% endblock %}

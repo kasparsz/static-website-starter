@@ -5,7 +5,7 @@ This repo serves as simple static website starter.
 # Stack
 
 * [Nunjucks](https://mozilla.github.io/nunjucks/) for templates
-* [SASS](http://sass-lang.com/) + [PostCSS](http://postcss.org/) for stylesheets with source maps
+* [SASS](http://sass-lang.com/) + [PostCSS](http://postcss.org/) (autoprefixer) for stylesheets with source maps
 * [rollup.js](http://rollupjs.org/) + [Bublé](https://gitlab.com/Rich-Harris/buble) for ES6 javascript with source maps
 
 # Getting started
