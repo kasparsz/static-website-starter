@@ -22,7 +22,7 @@
   "scripts": {
     "watch:js": "rollup -w -c rollup.js -i src/javascripts/main.js -o $npm_package_config_output/javascripts/main.js -m $npm_package_config_output/javascripts/main.js.map",
 
-    "watch:css-compile": "node-sass --source-map=true --source-map-contents=true --include-path src/stylesheets src/stylesheets/*.scss -o $npm_package_config_output/stylesheets-sass -w -r",
+    "watch:css-compile": "node-sass --source-map=true --source-map-contents=true --include-path src/stylesheets --include-path node_modules src/stylesheets/*.scss -o $npm_package_config_output/stylesheets-sass -w -r",
     "watch:css-compress": "postcss -w $npm_package_config_output/stylesheets-sass/ -c postcss.js -d $npm_package_config_output/stylesheets/ $npm_package_config_output/stylesheets-sass/*.css",
     "watch:css": "npm-run-all --parallel watch:css-compile watch:css-compress",
 
@@ -33,7 +33,7 @@
     "build:js-compress": "uglifyjs $npm_package_config_output/javascripts/main.js --source-map $npm_package_config_output/javascripts/main.js.map --in-source-map $npm_package_config_output/javascripts/main.js.map --source-map-url main.js.map --output $npm_package_config_output/javascripts/main.js --compress --mangle",
     "build:js": "npm-run-all build:js-compile build:js-compress",
 
-    "build:css-compile": "node-sass --source-map=true --source-map-contents=true --include-path src/stylesheets src/stylesheets/*.scss -o $npm_package_config_output/stylesheets-sass -r",
+    "build:css-compile": "node-sass --source-map=true --source-map-contents=true --include-path src/stylesheets --include-path node_modules src/stylesheets/*.scss -o $npm_package_config_output/stylesheets-sass -r",
     "build:css-compress": "postcss -c postcss.js -d $npm_package_config_output/stylesheets/ $npm_package_config_output/stylesheets-sass/*.css",
     "build:css-clean": "del $npm_package_config_output/stylesheets-sass",
     "build:css": "npm-run-all build:css-compile build:css-compress",
@@ -51,6 +51,8 @@
     "prepublish": "npm run production"
   },
   "dependencies": {
+    "normalize.css": "^5.0.0",
+
     "buble": "^0.15.1",
     "cpx": "^1.5.0",
     "cssnano-cli": "^1.0.5",
