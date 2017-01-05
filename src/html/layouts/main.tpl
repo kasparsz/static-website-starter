@@ -47,7 +47,7 @@
 
     {# JS #}
         {% block javascripts %}{% endblock %}
-        <script src="javascripts/index.js"></script>
+        <script src="javascripts/main.js"></script>
 
 </body>
 </html>

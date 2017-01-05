@@ -5,7 +5,9 @@ import commonjs from 'rollup-plugin-commonjs';
 export default {
     format: 'iife',
     plugins: [
-        buble(),
+        buble({
+            objectAssign: 'Object.assign'
+        }),
         resolve({
             jsnext: true,
             browser: true,

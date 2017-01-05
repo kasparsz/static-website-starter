@@ -46,9 +46,7 @@
 
     "development": "npm-run-all --parallel build:js build:css build:html && npm-run-all --parallel watch:js watch:css watch:html watch:static server",
     "production": "npm run clean && npm-run-all --parallel build:js build:css build:html && npm run build:css-clean",
-
-    "watch": "npm run development",
-    "prepublish": "npm run production"
+    "watch": "npm run development"
   },
   "dependencies": {
     "normalize.css": "^5.0.0",
