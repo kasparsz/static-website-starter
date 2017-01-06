@@ -38,7 +38,7 @@
     "build:css-clean": "del $npm_package_config_output/stylesheets-sass",
     "build:css": "npm-run-all build:css-compile build:css-compress",
 
-    "build:html": "nunjucks \"*.@(twig|html|tpl|nunjuck)\" -p src/html -o $npm_package_config_output",
+    "build:html": "nunjucks \"*.@(twig|html|tpl|nunjucks)\" -p src/html -o $npm_package_config_output",
     "build:static": "cpx src/static/**/* $npm_package_config_output -p",
 
     "server": "live-server $npm_package_config_output --wait=16 --port=$npm_package_config_port",

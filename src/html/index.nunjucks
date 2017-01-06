@@ -1,4 +1,4 @@
-{% extends 'layouts/main.tpl' %}
+{% extends 'layouts/main.nunjucks' %}
 
 {% block title %}Static website{% endblock %}
 
