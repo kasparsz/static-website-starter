@@ -19,7 +19,7 @@ Make sure you have Node version >= 5.0 and NPM >= 3
 * ```fork``` this repo
 * ```clone``` your fork
 * ```npm install``` to install all dependencies or ```yarn```
-* ```npm run development``` to start dev server in new tab
+* ```npm run development``` to start dev server in new tab or ```yarn development```
 
 ## Running the dev server
 
@@ -28,7 +28,11 @@ or ```npm run watch``` which will watch, build and reload for you.
 
 ## Other commands
 
-Build files using ```npm run production```
+Build files using ```npm run production``` or ```yarn production```
+
+## Output
+
+Files are compiled into ```public/``` folder
 
 # License
 [MIT](/LICENSE)

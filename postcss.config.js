@@ -1,7 +1,16 @@
 module.exports = {
-    "use": ["autoprefixer", "cssnano"],
-    "autoprefixer": {
-        "browsers": "> 5%"
+    'plugins': {
+        'autoprefixer': {
+            'browsers': '> 5%'
+        },
+        'cssnano': {
+            'zindex': false,
+            'mergeIdents': false,
+            'reduceIdents': false,
+            'discardUnused': {
+                'fontFace': false
+            }
+        }
     },
-    "map": { "inline": false }
+    'map': { 'inline': false }
 };
