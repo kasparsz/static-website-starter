@@ -6,11 +6,25 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 
         <title>{% block title %}{% endblock %}</title>
+        <meta name="description" content="{% block description %}{% endblock %}"/>
 
     {# Favicon #}
         {#
 		<link rel="shortcut icon" href="favicon.ico">
         <link rel="icon" type="image/png" href="favicon.png">
+        #}
+
+    {# Manifest #}
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/manifest/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/manifest/favicon-16x16.png" />
+        <link rel="apple-touch-icon" href="/assets/manifest/apple-touch-icon.png" />
+
+        <link rel="manifest" href="/assets/manifest/manifest.webmanifest" />
+        <meta name="theme-color" content="#FF0088" />
+
+        {#
+        <link rel="mask-icon" href="/assets/manifest/safari-pinned-tab.svg" color="#ffffff" />
+        <meta name="msapplication-config" content="/assets/manifest/browserconfig.xml" />
         #}
 
 	{# Social share meta tags; docs: http://ogp.me/ #}
@@ -30,7 +44,7 @@
         #}
 
     {# CSS #}
-        <link rel="stylesheet" href="stylesheets/main.css">
+        <link rel="stylesheet" href="/assets/stylesheets/main.css">
         {% block stylesheets %}{% endblock %}
 
 </head>
@@ -47,7 +61,7 @@
 
     {# JS #}
         {% block javascripts %}{% endblock %}
-        <script src="javascripts/main.js"></script>
+        <script src="/assets/javascripts/main.js"></script>
 
 </body>
 </html>
