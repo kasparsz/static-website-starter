@@ -3,7 +3,9 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 
 export default {
-    format: 'iife',
+    output: {
+        format: 'iife',
+    },
     plugins: [
         buble({
             objectAssign: 'Object.assign'

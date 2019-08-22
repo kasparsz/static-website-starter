@@ -1,8 +1,6 @@
 module.exports = {
     'plugins': {
-        'autoprefixer': {
-            'browsers': '> 5%'
-        },
+        'autoprefixer': {},
         'cssnano': {
             'zindex': false,
             'mergeIdents': false,

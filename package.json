@@ -12,63 +12,58 @@
         "url": "https://github.com/kasparsz/static-website-starter.git"
     },
     "keywords": [
-        "buble", "rollup", "sass", "postcss", "nunjucks", "static", "starter"
+        "buble",
+        "rollup",
+        "sass",
+        "postcss",
+        "nunjucks",
+        "static",
+        "starter"
     ],
     "engines": {
         "node": ">= 4.2.1",
         "npm": ">= 3"
     },
-
     "scripts": {
         "watch:js": "npm run build:js-compile --silent -- --watch",
-
         "watch:css-compile": "npm run build:css-compile --silent -- --watch",
-        "watch:css-compress": "npm run build:css-compress --silent -- --watch=$npm_package_config_output/stylesheets-sass/",
+        "watch:css-compress": "cross-var npm run build:css-compress --silent -- --watch=$npm_package_config_output/stylesheets-sass/",
         "watch:css": "npm-run-all --parallel watch:css-compile watch:css-compress",
-
         "watch:html": "npm run build:html --silent -- --watch",
         "watch:static": "npm run build:static --silent -- --watch",
-
-        "build:js-compile": "rollup -c rollup.js -i src/javascripts/main.js -o $npm_package_config_output/javascripts/main.js -m $npm_package_config_output/javascripts/main.js.map",
-        "build:js-compress": "uglifyjs $npm_package_config_output/javascripts/main.js --source-map \"filename='$npm_package_config_output/javascripts/main.js.map',url='main.js.map'\" --output $npm_package_config_output/javascripts/main.js --compress --mangle",
+        "build:js-compile": "cross-var rollup -c rollup.js -i ./src/javascripts/main.js -o $npm_package_config_output/javascripts/main.js -m $npm_package_config_output/javascripts/main.js.map",
+        "build:js-compress": "cross-var uglifyjs $npm_package_config_output/javascripts/main.js --source-map \"filename='$npm_package_config_output/javascripts/main.js.map',url='main.js.map'\" --output $npm_package_config_output/javascripts/main.js --compress --mangle",
         "build:js": "npm-run-all build:js-compile build:js-compress",
-
-        "build:css-compile": "node-sass --source-map=true --source-map-contents=true --include-path src/stylesheets --include-path node_modules src/stylesheets/*.scss -o $npm_package_config_output/stylesheets-sass -r",
-        "build:css-compress": "postcss -c postcss.config.js -d $npm_package_config_output/stylesheets/ $npm_package_config_output/stylesheets-sass/*.css",
-        "build:css-clean": "del $npm_package_config_output/stylesheets-sass",
+        "build:css-compile": "cross-var node-sass --source-map=true --source-map-contents=true --include-path ./src/stylesheets --include-path ./node_modules -o $npm_package_config_output/stylesheets-sass -r src/stylesheets",
+        "build:css-compress": "cross-var postcss -c postcss.config.js -d $npm_package_config_output/stylesheets/ $npm_package_config_output/stylesheets-sass/*.css",
+        "build:css-clean": "cross-var del-cli $npm_package_config_output/stylesheets-sass",
         "build:css": "npm-run-all build:css-compile build:css-compress",
-
-        "build:html": "nunjucks \"*.@(twig|html|tpl|nunjucks)\" -p src/html -o $npm_package_config_output",
-        "build:static": "cpx src/static/**/* $npm_package_config_output -p",
-
-        "server": "live-server $npm_package_config_output --wait=16 --port=$npm_package_config_port",
-        "clean": "del $npm_package_config_output/*",
-
+        "build:html": "cross-var nunjucks \"*.@(twig|html|tpl|nunjucks)\" -p src/html -o $npm_package_config_output",
+        "build:static": "cross-var cpx src/static/**/* $npm_package_config_output -p",
+        "server": "cross-var live-server $npm_package_config_output --wait=16 --port=$npm_package_config_port",
+        "clean": "cross-var del-cli $npm_package_config_output/*",
         "development": "npm-run-all --parallel build:js build:css build:html && npm-run-all --parallel watch:js watch:css watch:html watch:static server",
         "production": "npm run clean && npm-run-all --parallel build:js build:css build:html && npm run build:css-clean",
         "watch": "npm run development"
     },
     "dependencies": {
-        "normalize.css": "^8.0.0",
-
-        "cpx": "^1.5.0",
-        "del-cli": "^1.1.0",
-        "live-server": "^1.1.0",
-        "npm-run-all": "^4.0.0",
-
-        "nunjucks-cli": "^0.5.1",
-
-        "node-sass": "^4.1.1",
-        "cssnano": "^3.10.0",
-        "postcss-cli": "^5.0.0",
-
-        "rollup": "^0.59.1",
-        "rollup-plugin-buble": "^0.19.2",
-        "rollup-plugin-commonjs": "^9.1.3",
-        "rollup-plugin-node-resolve": "^3.3.0",
-        "rollup-watch": "^4.3.1",
-
+        "autoprefixer": "^9.6.1",
         "buble": "^0.19.3",
+        "cpx": "^1.5.0",
+        "cross-var": "^1.1.0",
+        "cssnano": "^4.1.10",
+        "del-cli": "^2.0.0",
+        "live-server": "^1.1.0",
+        "node-sass": "^4.12.0",
+        "normalize.css": "^8.0.0",
+        "npm-run-all": "^4.0.0",
+        "nunjucks-cli": "^1.0.0",
+        "postcss-cli": "^6.1.3",
+        "rollup": "^1.20.1",
+        "rollup-plugin-buble": "^0.19.2",
+        "rollup-plugin-commonjs": "^10.0.2",
+        "rollup-plugin-node-resolve": "^5.2.0",
+        "rollup-watch": "^4.3.1",
         "uglify-js": "^3.3.25"
     },
     "config": {
