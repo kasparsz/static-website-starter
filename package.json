@@ -38,7 +38,7 @@
         "build:css-compress": "cross-var postcss -c postcss.config.js -d $npm_package_config_output/assets/stylesheets/ $npm_package_config_output/assets/stylesheets-sass/*.css",
         "build:css-clean": "cross-var del-cli $npm_package_config_output/assets/stylesheets-sass",
         "build:css": "npm-run-all build:css-compile build:css-compress",
-        "build:html": "cross-var nunjucks \"*.@(twig|html|tpl|nunjucks)\" -p src/html -o $npm_package_config_output",
+        "build:html": "cross-var nunjucks \"**/*.@(twig|html|tpl|nunjucks)\" -p src/html -o $npm_package_config_output",
         "build:static": "cross-var cpx src/static/**/* $npm_package_config_output -p",
         "server": "cross-var live-server $npm_package_config_output --wait=16 --port=$npm_package_config_port",
         "clean": "cross-var del-cli $npm_package_config_output/*",
