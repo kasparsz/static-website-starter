@@ -25,7 +25,7 @@
         "npm": ">= 3"
     },
     "scripts": {
-        "watch:js": "npm run build:js-compile --silent -- --watch",
+        "watch:js": "npm run build:js --silent -- --watch",
         "watch:css-compile": "npm run build:css-compile --silent -- --watch",
         "watch:css-compress": "cross-var npm run build:css-compress --silent -- --watch=$npm_package_config_output/assets/stylesheets-sass/",
         "watch:css": "npm-run-all --parallel watch:css-compile watch:css-compress",
@@ -40,7 +40,7 @@
         "build:static": "cross-var cpx src/static/**/* $npm_package_config_output -p",
         "server": "cross-var live-server $npm_package_config_output --wait=16 --port=$npm_package_config_port",
         "clean": "cross-var del-cli $npm_package_config_output/*",
-        "development": "npm-run-all --parallel build:js build:css build:html && npm-run-all --parallel watch:js watch:css watch:html watch:static server",
+        "development": "npm-run-all --parallel build:css && npm-run-all --parallel watch:js watch:css watch:html watch:static server",
         "production": "set NODE_ENV=production && npm run clean && npm-run-all --parallel build:js build:css build:html && npm run build:css-clean",
         "watch": "npm run development"
     },
