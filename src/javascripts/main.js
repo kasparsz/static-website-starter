@@ -1,3 +1,3 @@
 import './common/service-worker';
 
-console.log('Ready...');
+// console.log('Loaded...');

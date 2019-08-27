@@ -31,9 +31,7 @@
         "watch:css": "npm-run-all --parallel watch:css-compile watch:css-compress",
         "watch:html": "npm run build:html --silent -- --watch",
         "watch:static": "npm run build:static --silent -- --watch",
-        "build:js-compile": "cross-var rollup -c rollup.js -i ./src/javascripts/main.js -o $npm_package_config_output/assets/javascripts/main.js -m $npm_package_config_output/assets/javascripts/main.js.map",
-        "build:js-compress": "cross-var uglifyjs $npm_package_config_output/assets/javascripts/main.js --source-map \"filename='$npm_package_config_output/assets/javascripts/main.js.map',url='main.js.map'\" --output $npm_package_config_output/assets/javascripts/main.js --compress --mangle",
-        "build:js": "npm-run-all build:js-compile build:js-compress",
+        "build:js": "cross-var rollup --config rollup.config.js",
         "build:css-compile": "cross-var node-sass --source-map=true --source-map-contents=true --include-path ./src/stylesheets --include-path ./node_modules -o $npm_package_config_output/assets/stylesheets-sass -r src/stylesheets",
         "build:css-compress": "cross-var postcss -c postcss.config.js -d $npm_package_config_output/assets/stylesheets/ $npm_package_config_output/assets/stylesheets-sass/*.css",
         "build:css-clean": "cross-var del-cli $npm_package_config_output/assets/stylesheets-sass",
@@ -43,7 +41,7 @@
         "server": "cross-var live-server $npm_package_config_output --wait=16 --port=$npm_package_config_port",
         "clean": "cross-var del-cli $npm_package_config_output/*",
         "development": "npm-run-all --parallel build:js build:css build:html && npm-run-all --parallel watch:js watch:css watch:html watch:static server",
-        "production": "npm run clean && npm-run-all --parallel build:js build:css build:html && npm run build:css-clean",
+        "production": "set NODE_ENV=production && npm run clean && npm-run-all --parallel build:js build:css build:html && npm run build:css-clean",
         "watch": "npm run development"
     },
     "dependencies": {
@@ -63,6 +61,7 @@
         "rollup-plugin-buble": "^0.19.2",
         "rollup-plugin-commonjs": "^10.0.2",
         "rollup-plugin-node-resolve": "^5.2.0",
+        "rollup-plugin-uglify": "^6.0.2",
         "rollup-watch": "^4.3.1",
         "uglify-js": "^3.3.25"
     },
