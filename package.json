@@ -40,8 +40,8 @@
         "build:static": "cross-var cpx src/static/**/* $npm_package_config_output -p",
         "server": "cross-var live-server $npm_package_config_output --wait=16 --port=$npm_package_config_port",
         "clean": "cross-var del-cli $npm_package_config_output/*",
-        "development": "npm-run-all --parallel build:css && npm-run-all --parallel watch:js watch:css watch:html watch:static server",
-        "production": "set NODE_ENV=production && npm run clean && npm-run-all --parallel build:js build:css build:html && npm run build:css-clean",
+        "development": "set NODE_ENV=development && npm-run-all --parallel build:css && npm-run-all --parallel watch:js watch:css watch:html watch:static server",
+        "production": "set NODE_ENV=production && npm run clean && npm-run-all --parallel build:js build:css build:html build:static && npm run build:css-clean",
         "watch": "npm run development"
     },
     "dependencies": {

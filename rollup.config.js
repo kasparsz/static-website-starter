@@ -3,11 +3,12 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import uglify from "rollup-plugin-uglify";
 import fs from 'fs';
+import path from 'path';
 
 const inputFolder = './src/javascripts';
 
 // Get all .js files from input folder
-const entries = fs.readdirSync(inputFolder).map((fileName) => {
+const entries = fs.readdirSync(path.resolve(__dirname, inputFolder)).map((fileName) => {
     return fileName.match(/.js$/) ? `${ inputFolder }/${ fileName }` : undefined;
 }).filter(f => !!f);
 
@@ -15,7 +16,7 @@ const entries = fs.readdirSync(inputFolder).map((fileName) => {
 export default entries.map((filename) => ({
     input: filename,
     output: {
-        dir: './public/assets/javascripts',
+        dir: `./${ process.env.npm_package_config_output }/assets/javascripts`,
         format: 'iife',
         // format: 'es',
         sourcemap: true
