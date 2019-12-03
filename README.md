@@ -10,16 +10,12 @@ This repo serves as simple static website starter.
 
 # Getting started
 
-## Dependencies
-
-Make sure you have Node version >= 5.0 and NPM >= 3
-
 ## Installing
 
 * ```fork``` this repo
 * ```clone``` your fork
-* ```npm install``` to install all dependencies or ```yarn```
-* ```npm run development``` to start dev server in new tab or ```yarn development```
+* ```npm install``` to install all dependencies
+* ```npm run development``` to start dev server in new tab
 
 ## Running the dev server
 
@@ -28,7 +24,7 @@ or ```npm run watch``` which will watch, build and reload for you.
 
 ## Other commands
 
-Build files using ```npm run production``` or ```yarn production```
+Build files using ```npm run production```
 
 ## Output
 
