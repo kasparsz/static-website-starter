@@ -1,3 +1,4 @@
 import './common/service-worker';
 
-// console.log('Loaded...');
+// eslint-disable-next-line
+console.log('Loaded...');
